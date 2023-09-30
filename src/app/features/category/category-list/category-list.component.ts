@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CategoryView } from '../models/get-category.model';
 import { CategoryService } from '../services/category.service';
 
 @Component({
@@ -8,23 +9,17 @@ import { CategoryService } from '../services/category.service';
   styleUrls: ['./category-list.component.css'],
 })
 export class CategoryListComponent implements OnInit {
-  //model: CategoryView;
-  categoryList: any = [];
+  model: CategoryView[] = [];
+  //categoryList: any = []; To bind response to a array
   private getCategorySubscription?: Subscription;
-  constructor(private cat: CategoryService) {
-    // this.model = {
-    //   id: 'sdfsdf',
-    //   name: 'sdfsdf',
-    //   urlHandle: '',
-    // };
-  }
+  constructor(private cat: CategoryService) {}
   ngOnInit(): void {
     this.getCategoryList();
   }
 
   getCategoryList() {
     this.getCategorySubscription = this.cat.getCategory().subscribe((data) => {
-      this.categoryList = data;
+      this.model = data;
     });
   }
 }

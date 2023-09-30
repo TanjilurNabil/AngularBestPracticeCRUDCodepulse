@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddCategoryRequest } from '../models/add-category-request.model';
+import { CategoryView } from '../models/get-category.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +17,8 @@ export class CategoryService {
     );
   }
 
-  getCategory(): Observable<void> {
-    return this.http.get<void>(
+  getCategory(): Observable<CategoryView[]> {
+    return this.http.get<any[]>(
       'https://localhost:7176/api/Categories/GetCategory'
     );
   }
