@@ -5,8 +5,8 @@
       >Add Category</a
     >
   </div>
-  <div class="mt-3">
-    <table class="table table-bordered">
+  <ng-container *ngIf="categories$ | async as categories">
+    <table class="table table-bordered mt-3">
       <thead>
         <tr>
           <th>ID</th>
@@ -15,12 +15,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of model">
+        <tr *ngFor="let item of categories">
           <td>{{ item.id }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.urlHandle }}</td>
         </tr>
       </tbody>
     </table>
-  </div>
+  </ng-container>
 </div>

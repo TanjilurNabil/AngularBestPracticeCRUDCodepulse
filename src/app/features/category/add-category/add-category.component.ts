@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AddCategoryRequest } from '../models/add-category-request.model';
 import { CategoryService } from '../services/category.service';
@@ -11,7 +12,10 @@ import { CategoryService } from '../services/category.service';
 export class AddCategoryComponent implements OnDestroy {
   model: AddCategoryRequest;
   private addCategorySubscription?: Subscription;
-  constructor(private categoryService: CategoryService) {
+  constructor(
+    private categoryService: CategoryService,
+    private router: Router
+  ) {
     this.model = {
       name: '',
       urlHandle: '',
@@ -24,7 +28,7 @@ export class AddCategoryComponent implements OnDestroy {
       .addCategory(this.model)
       .subscribe({
         next: (response) => {
-          alert('Category saved successfully!');
+          this.router.navigateByUrl('/admin/categories');
         },
       });
   }
