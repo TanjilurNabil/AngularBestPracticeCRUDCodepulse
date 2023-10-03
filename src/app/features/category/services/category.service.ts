@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 import { AddCategoryRequest } from '../models/add-category-request.model';
-import { CategoryView } from '../models/get-category.model';
+import { Category } from '../models/category.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,14 +13,14 @@ export class CategoryService {
 
   addCategory(model: AddCategoryRequest): Observable<void> {
     return this.http.post<void>(
-      'https://localhost:7176/api/Categories/CreateCategory',
+      `${environment.apiBaseUrl}/api/Categories`,
       model
     );
   }
 
-  getCategory(): Observable<CategoryView[]> {
-    return this.http.get<any[]>(
-      'https://localhost:7176/api/Categories/GetCategory'
+  getCategory(): Observable<Category[]> {
+    return this.http.get<Category[]>(
+      `${environment.apiBaseUrl}/api/Categories`
     );
   }
 }
