@@ -13,6 +13,7 @@ import { AddCategoryComponent } from './features/category/add-category/add-categ
 import { CategoryListComponent } from './features/category/category-list/category-list.component';
 import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';
 import { EditBlogpostComponent } from './features/blog-post/edit-blogpost/edit-blogpost.component';
+import { ImageSelectorComponent } from './shared/components/image-selector/image-selector.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EditBlogpostComponent } from './features/blog-post/edit-blogpost/edit-b
     BlogpostListComponent,
     AddBlogpostComponent,
     EditBlogpostComponent,
+    ImageSelectorComponent,
   ],
   imports: [
     BrowserModule,
