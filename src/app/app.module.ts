@@ -14,6 +14,7 @@ import { CategoryListComponent } from './features/category/category-list/categor
 import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';
 import { EditBlogpostComponent } from './features/blog-post/edit-blogpost/edit-blogpost.component';
 import { ImageSelectorComponent } from './shared/components/image-selector/image-selector.component';
+import { HomeComponent } from './features/public/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ImageSelectorComponent } from './shared/components/image-selector/image
     AddBlogpostComponent,
     EditBlogpostComponent,
     ImageSelectorComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
