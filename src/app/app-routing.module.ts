@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './features/auth/login/login.component';
 import { AddBlogpostComponent } from './features/blog-post/add-blogpost/add-blogpost.component';
 import { BlogpostListComponent } from './features/blog-post/blogpost-list/blogpost-list.component';
 import { EditBlogpostComponent } from './features/blog-post/edit-blogpost/edit-blogpost.component';
@@ -10,6 +11,10 @@ import { BlogDetailsComponent } from './features/public/blog-details/blog-detail
 import { HomeComponent } from './features/public/home/home.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
   { path: '', component: HomeComponent },
   {
     path: 'blog/:url',
