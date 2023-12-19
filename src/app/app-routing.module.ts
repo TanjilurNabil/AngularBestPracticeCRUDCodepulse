@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { authGuard } from './features/auth/guards/auth.guard';
 import { LoginComponent } from './features/auth/login/login.component';
 import { AddBlogpostComponent } from './features/blog-post/add-blogpost/add-blogpost.component';
 import { BlogpostListComponent } from './features/blog-post/blogpost-list/blogpost-list.component';
@@ -23,26 +24,32 @@ const routes: Routes = [
   {
     path: 'admin/categories',
     component: CategoryListComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'admin/categories/add',
     component: AddCategoryComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'admin/categories/:id',
     component: EditCategoryComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'admin/blogposts',
     component: BlogpostListComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'admin/blogposts/add',
     component: AddBlogpostComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'admin/blogposts/:id',
     component: EditBlogpostComponent,
+    canActivate: [authGuard],
   },
 ];
 
