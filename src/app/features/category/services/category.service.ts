@@ -24,10 +24,15 @@ export class CategoryService {
       `${environment.apiBaseUrl}/api/Categories/${id}`
     );
   }
-
+  // Manual way to send token as header rather than interceptor
+  // {
+  //   headers: {
+  //     Authorization: this.cookieService.get('Authorizer'),
+  //   },
+  // }
   addCategory(model: AddCategoryRequest): Observable<void> {
     return this.http.post<void>(
-      `${environment.apiBaseUrl}/api/Categories`,
+      `${environment.apiBaseUrl}/api/Categories?addAuth=true`,
       model
     );
   }
@@ -36,18 +41,13 @@ export class CategoryService {
     updateCategoruRequest: UpdateCategoryRequest
   ): Observable<Category> {
     return this.http.put<Category>(
-      `${environment.apiBaseUrl}/api/Categories/${id}`,
-      updateCategoruRequest,
-      {
-        headers: {
-          Authorization: this.cookieService.get('Authorizer'),
-        },
-      }
+      `${environment.apiBaseUrl}/api/Categories/${id}?addAuth=true`,
+      updateCategoruRequest
     );
   }
   deleteCategory(id: string): Observable<Category> {
     return this.http.delete<Category>(
-      `${environment.apiBaseUrl}/api/Categories/${id}`
+      `${environment.apiBaseUrl}/api/Categories/${id}?addAuth=true`
     );
   }
 }
